@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EngageSense: Real-time audience engagement analysis">
+    <title>EngageSense</title>
+    <style>
+        /* Inline CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #6200ea;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #6200ea;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #6200ea;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #3700b3;
+        }
+        .progress-bar {
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .progress-bar div {
+            height: 100%;
+            background-color: #6200ea;
+            width: 0;
+            transition: width 0.5s;
+        }
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 0.9em;
+            background: #6200ea;
+            color: #fff;
+        }
+        .metrics-dashboard {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .metric-card {
+            background-color: #eee;
+            padding: 15px;
+            border-radius: 8px;
+            width: 23%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EngageSense</h1>
+        <p>Real-Time Audience Engagement Analysis</p>
+    </header>
+
+    <div class="container">
+        <!-- User Flow: Step 1 -->
+        <h2>Welcome to EngageSense</h2>
+        <p>Start measuring audience engagement effortlessly.</p>
+        <button class="button" onclick="startAnalysis()">Start Analysis</button>
+
+        <!-- User Flow: Progress Bar -->
+        <div id="progress" class="progress-bar">
+            <div></div>
+        </div>
+
+        <!-- User Flow: Step 2 - Metrics -->
+        <h3>Engagement Metrics</h3>
+        <div class="metrics-dashboard">
+            <div class="metric-card">
+                <h4>Physical</h4>
+                <p id="physicalMetric">Loading...</p>
+            </div>
+            <div class="metric-card">
+                <h4>Emotional</h4>
+                <p id="emotionalMetric">Loading...</p>
+            </div>
+            <div class="metric-card">
+                <h4>Mental</h4>
+                <p id="mentalMetric">Loading...</p>
+            </div>
+            <div class="metric-card">
+                <h4>Spiritual</h4>
+                <p id="spiritualMetric">Loading...</p>
+            </div>
+        </div>
+
+        <!-- User Flow: Step 3 - Data Visualization -->
+        <div class="chart-container" id="chartContainer"></div>
+    </div>
+
+    <footer>
+        EngageSense &copy; 2024. All Rights Reserved.
+    </footer>
+
+    <script>
+        // Inline JavaScript for functionality
+        // Placeholder data for metrics
+        const metricsData = {
+            physical: '85%',
+            emotional: '75%',
+            mental: '80%',
+            spiritual: '90%',
+        };
+
+        // Simulated progress bar
+        function startAnalysis() {
+            const progressBar = document.querySelector(".progress-bar div");
+            progressBar.style.width = "100%";
+            setTimeout(() => {
+                displayMetrics();
+                displayChart();
+            }, 2000);
+        }
+
+        // Display metrics data on the dashboard
+        function displayMetrics() {
+            document.getElementById("physicalMetric").innerText = metricsData.physical;
+            document.getElementById("emotionalMetric").innerText = metricsData.emotional;
+            document.getElementById("mentalMetric").innerText = metricsData.mental;
+            document.getElementById("spiritualMetric").innerText = metricsData.spiritual;
+        }
+
+        // Simulated data visualization for engagement
+        function displayChart() {
+            const chartContainer = document.getElementById("chartContainer");
+            chartContainer.innerHTML = `
+                <svg viewBox="0 0 100 100" width="300" height="300">
+                    <circle cx="50" cy="50" r="40" fill="#ddd" />
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#6200ea" stroke-width="10" stroke-dasharray="251.2, 251.2" stroke-dashoffset="125.6" transform="rotate(-90, 50, 50)" />
+                    <text x="50%" y="50%" text-anchor="middle" fill="#333" dy=".3em" font-size="20">75%</text>
+                </svg>
+            `;
+        }
+    </script>
+</body>
+</html>
